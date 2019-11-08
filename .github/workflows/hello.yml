@@ -1,5 +1,5 @@
 name: Hello,World!
-on: pull_request
+on: push
 
 jobs:
   github-context:
@@ -11,14 +11,6 @@ jobs:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "${GITHUB_CONTEXT}"
 
-jobs:
-  if-pull-request-is-opened:
-    name: If
-    runs-on: ubuntu-latest
-    steps:
-      - name: echo if pull request is opened
-        if: github.event_name == 'pull_request' && github.event.action == 'opened'
-        run: echo "pull request is opened"
 
 jobs:
   job1:
